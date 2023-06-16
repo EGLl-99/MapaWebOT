@@ -53,14 +53,14 @@ if "page" in params:
 else:
     default_index = 0
 
-with st.sidebar:
-    selected = option_menu(
-        "Menú Principal",
-        options=titles,
-        icons=icons,
-        menu_icon="cast",
-        default_index=default_index,
-    )
+# with st.sidebar:
+#     selected = option_menu(
+#         "Menú Principal",
+#         options=titles,
+#         icons=icons,
+#         menu_icon="cast",
+#         default_index=default_index,
+#     )
     
     
     
