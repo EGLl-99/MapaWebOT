@@ -3,7 +3,7 @@ import ee
 import geemap.foliumap as geemap
 import folium
 
-ee.Initialize()
+
 #st.set_page_config(layout='wide')
 #Use local css
 def local_css(file_name):
