@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
+#from streamlit_option_menu import option_menu
 from apps import Transporte, prior, PoblaEcon, Geol, Cons, Clima # import your app modules here
 
 st.sidebar.title("Ordenamiento Territorial")
