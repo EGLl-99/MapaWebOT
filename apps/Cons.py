@@ -25,6 +25,13 @@ def app():
     Map= geemap.Map(center=[20.4064,-88.4738],zoom= 7)
     Map.add_basemap('HYBRID')
     
+    
+    legend_dict = {
+    'Requiere un estudio': '#008000',
+    'Turismo': '#FFFF00',
+    'Prohibido': '#FF3333'
+}
+    
     markdown= """
         
        Yucatán es uno de los estados dentro de la República México donde se encuentra gran riqueza natural y cultural, debido a ello cuentan con estrategias y acciones implementadas para preservar y proteger los ecosistemas, la biodiversidad y el patrimonio cultural de la zona. 
@@ -50,6 +57,8 @@ Teniendo toda esta información recopilada se pueden generar estrategias que sat
     #capa6= ee.Image('')
 
     vis1= {'palette':['#008000','#FFFF00','#FF3333'], 'min':1,'max':5}
+    
+    Map.add_legend(legend_dict=legend_dict)
     
     Map.addLayer(capa1,vis1,'Conservación')
     

@@ -24,6 +24,15 @@ def app():
     Map= geemap.Map(center=[20.4064,-88.4738],zoom= 7)
     Map.add_basemap('HYBRID')
     
+    
+    legend_dict = {
+    'Apto para cultivo': '#008000',
+    'Requiere de un estudio': '#FFFF00',
+    'No es apto para cultivo': '#FF3333'
+}
+    
+    
+    
     markdown= """
         
 La priorización obtenida de la evaluación se rige por factores tales como: 
@@ -81,6 +90,8 @@ En resumen, la composición biológica de un suelo es importante para la agricul
     #capa6= ee.Image('')
 
     vis1= {'palette':['#008000','#FFFF00','#FF3333'], 'min':1,'max':5}
+    
+    Map.add_legend(legend_dict=legend_dict)
     
     Map.addLayer(capa1,vis1,'Agricultura')
     

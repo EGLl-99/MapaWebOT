@@ -24,6 +24,15 @@ def app():
     Map= geemap.Map(center=[20.4064,-88.4738],zoom= 7)
     Map.add_basemap('HYBRID')
     
+    legend_dict = {
+    'Poca poblacion economicamente activa': '#008000',
+    'Poblacion economicamente activa- Bajo': '#41DE07',
+    'Poblacion economicamente activa- Medio Bajo': '#FFFF00',
+    'Poblacion economicamente activa- Medio Alto': '#FFA533',
+    'Mayor poblacion economicamente activa': '#FF3333'
+}
+    
+    
     markdown= """
         
         Entre las principales actividades productivas que se llevan a cabo en el estado se encuentran: comercio; construcción; industria alimentaria; información en medios masivos; y servicios inmobiliarios y de alquiler de bienes muebles e intangibles. Juntas representan el 62.0% del PIB estatal.
@@ -61,6 +70,8 @@ Las Actividades Terciarias incluyen a los sectores dedicados a la distribución 
     #capa6= ee.Image('')
 
     vis1= {'palette':['#008000','#41DE07','#FFFF00','#FFA533','#FF3333'], 'min':1,'max':5}
+    
+    Map.add_legend(legend_dict=legend_dict)
     
     Map.addLayer(capa1,vis1,'Transporte')
     

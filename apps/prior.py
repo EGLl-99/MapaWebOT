@@ -24,6 +24,12 @@ def app():
     Map= geemap.Map(center=[20.4064,-88.4738],zoom= 7)
     Map.add_basemap('HYBRID')
     
+    legend_dict = {
+    'Factible': '#008000',
+    'Medianamente factible': '#FFFF00',
+    'No es factible': '#FF3333'
+}
+    
     markdown= """
         
   Evaluación multicriterio para la priorización de zonas económicas importantes en Yucatán
@@ -68,6 +74,8 @@ En Yucatán existen áreas naturales protegidas que son importantes para la cons
     #capa6= ee.Image('')
 
     vis1= {'palette':['#008000','#41DE07','#FFA533','#FF3333'], 'min':1,'max':4}
+    
+    Map.add_legend(legend_dict=legend_dict)
     
     Map.addLayer(capa1,vis1,'Priorización')
     

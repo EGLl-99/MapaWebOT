@@ -20,6 +20,15 @@ def app():
     Map= geemap.Map(center=[20.4064,-88.4738],zoom= 7)
     Map.add_basemap('HYBRID')
     
+    
+    legend_dict = {
+    'Vias cercanas': '#008000',
+    'Vias cercanas - Medio Alto': '#41DE07',
+    'Vias cercanas - medio Bajo': '#FFFF00',
+    'Lejano': '#FFA533',
+    'Muy Lejano': '#FF3333'
+}
+    
     markdown= """
         
         La infraestructura vial en Yucatán se ha fortalecido en los últimos años para mejorar la movilidad y la seguridad tanto para peatones como para automovilistas. El Programa Sectorial de Infraestructura para el Desarrollo Sustentable 2013-2018 tiene como objetivo impulsar un Yucatán competitivo mediante la construcción de infraestructura. La península de Yucatán cuenta con una infraestructura de transporte que incluye una red vial y ejes troncales para el movimiento de mercancías y personas. La ciudad de Mérida cuenta con varias arterias viales, entre las más importantes está la carretera federal núm. 180, que viene de la ciudad de Campeche, y la autopista que enlaza a la entidad con la ciudad de Cancún.
@@ -78,6 +87,8 @@ Objetivos:
     #capa6= ee.Image('')
 
     vis1= {'palette':['#008000','#41DE07','#FFFF00','#FFA533','#FF3333'], 'min':1,'max':5}
+    
+    Map.add_legend(legend_dict=legend_dict)
     
     Map.addLayer(capa1,vis1,'Transporte')
     
