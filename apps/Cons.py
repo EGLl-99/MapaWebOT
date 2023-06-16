@@ -5,21 +5,43 @@ import folium
 
 ee.Initialize()
 #st.set_page_config(layout='wide')
+#Use local css
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html= True)
+        
+        
+local_css('style/style.css')
 
 
 def app():
-    st.title('Conservación')
+    st.title('Transporte')
+    Map= geemap.Map(center=[20.4064,-88.4738],zoom= 7)
+    Map.add_basemap('HYBRID')
+
+def app():
+    st.title("Conservación ")
+
     Map= geemap.Map(center=[20.4064,-88.4738],zoom= 7)
     Map.add_basemap('HYBRID')
     
     markdown= """
         
-        En este sitio se muestra el resultado de realizar una evaluación multicriterio considerando 
-        factores propios del ordenamiento territorial de Yucatan
+       Yucatán es uno de los estados dentro de la República México donde se encuentra gran riqueza natural y cultural, debido a ello cuentan con estrategias y acciones implementadas para preservar y proteger los ecosistemas, la biodiversidad y el patrimonio cultural de la zona. 
+
+Para la determinación de estas zonas de conservación y estrategias se basa en información como los son: 
+
+ - Arenas Naturales Protegidas (ANP) - Estas son zonas donde no han sufrido alteraciones por actividades humanas y requieren ser preservadas. 
+
+- Sitio prioritarios para la conservación de la biodiversidad terrestre (STP) - En esta se analizan factores de fauna y flora para determinar la importancia que tiene la zona y cuáles son sus metas de conservación. 
+
+- Áreas de Importancia para la Conservación de las Aves (AICAS) - Con estas podemos identificar las especies que se encuentran en alguna zona determinada, así como la importancia de conservación de sus hábitats. 
+
+Teniendo toda esta información recopilada se pueden generar estrategias que satisfagan las necesidades del estado para conservar su riqueza natural y cultural.
         
     """
     
-    
+    st.markdown(markdown)
     capa1= ee.Image('users/emiliogonzalez/Conservacion1')
     #capa2= ee.Image('')
     #capa3= ee.Image('')
